@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Validação de Certificados | Infornet Telecom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f4f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    h1 {
+      color: #0a4aa8;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #0a4aa8;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #083b86;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h1>Validação de Certificado</h1>
+    <p>Digite o código do certificado para verificar sua autenticidade.</p>
+
+    <input type="text" id="codigo" placeholder="Ex: INF-2026-0001">
+    <button onclick="validar()">Validar Certificado</button>
+
+    <div id="resultado"></div>
+
+    <footer>
+      © 2026 Infornet Telecom
+    </footer>
+  </div>
+
+  <script>
+    const certificados = {
+      "INF-2026-0001": "Isabela da Silva Sales - 24/01/2026",
+      "INF-2026-0002": "Karine Rafael de Jesus - 24/01/2026",
+      "INF-2026-0003": "Railane Santos da Silva - 24/01/2026",
+      "INF-2026-0004": "Vitória Silva de Oliveira - 24/01/2026",
+      "INF-2026-0005": "Marcos Vinicius Damasceno de Souza - 24/01/2026",
+      "INF-2026-0006": "Maria Juliana Santos Batista Nazaro - 24/01/2026",
+      "INF-2026-0007": "Jonatha Gomes Fernandes - 24/01/2026",
+      "INF-2026-0008": "Louise Barbosa de Carvalho - 24/01/2026",
+      "INF-2026-0009": "Daniely Ariany Quintino dos Santos - 24/01/2026",
+      "INF-2026-0010": "Taís Eduane Bonfim Guerra - 24/01/2026",
+      "INF-2026-0011": "Noeme Cavalcante da Silva - 24/01/2026",
+      "INF-2026-0012": "Érica Lourdes da Silva - 24/01/2026",
+      "INF-2026-0013": "Djailma Miranda dos Santos - 24/01/2026",
+      "INF-2026-0014": "Letícia Andrade Silva - 24/01/2026",
+      "INF-2026-0015": "Isaías Barbosa de Oliveira - 24/01/2026",
+      "INF-2026-0016": "Danilo Batista da Silva - 24/01/2026",
+      "INF-2026-0017": "Jonatas Lourenço Bispo - 24/01/2026"
+    };
+
+    function validar() {
+      const codigo = document.getElementById("codigo").value.trim();
+      const resultado = document.getElementById("resultado");
+
+      if (certificados[codigo]) {
+        resultado.style.color = "green";
+        resultado.innerHTML = "✅ Certificado válido<br>" + certificados[codigo];
+      } else {
+        resultado.style.color = "red";
+        resultado.innerHTML = "❌ Certificado não encontrado";
+      }
+    }
+  </script>
+
+</body>
+</html>
