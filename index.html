@@ -3,59 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <title>Validação de Certificados | Infornet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      text-align: center;
-      padding: 40px;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #0b5ed7, #0d6efd);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
     }
-    .card {
-      background: #fff;
+
+    .container {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
       padding: 30px;
-      max-width: 500px;
-      margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      text-align: center;
     }
+
+    .logo {
+      max-width: 160px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #1c1c1c;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #6c757d;
+      margin-bottom: 20px;
+    }
+
     input {
-      padding: 10px;
-      width: 80%;
-      margin-top: 15px;
+      width: 100%;
+      padding: 14px;
+      font-size: 15px;
+      border-radius: 10px;
+      border: 1px solid #ced4da;
+      outline: none;
+      margin-bottom: 15px;
     }
+
+    input:focus {
+      border-color: #0d6efd;
+    }
+
     button {
-      padding: 10px 20px;
-      margin-top: 15px;
+      width: 100%;
+      padding: 14px;
+      background: #0d6efd;
+      color: #ffffff;
+      font-size: 15px;
+      border: none;
+      border-radius: 10px;
       cursor: pointer;
     }
+
+    button:hover {
+      background: #0b5ed7;
+    }
+
     .resultado {
       margin-top: 20px;
-      font-weight: bold;
+      font-size: 14px;
     }
-    img {
-      max-width: 180px;
-      margin-bottom: 20px;
+
+    .resultado a {
+      display: inline-block;
+      margin-top: 12px;
+      text-decoration: none;
+      background: #198754;
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .resultado a:hover {
+      background: #157347;
+    }
+
+    .footer {
+      margin-top: 25px;
+      font-size: 13px;
+      color: #adb5bd;
+    }
+
+    .footer a {
+      color: #0d6efd;
+      text-decoration: none;
+      margin: 0 6px;
     }
   </style>
 </head>
+
 <body>
 
-  <div class="card">
-    <img src="logo-infornet.png" alt="Infornet">
+  <div class="container">
+    <img src="logo-infornet.png" class="logo" alt="Infornet">
 
-    <h2>Validação de Certificado</h2>
-    <p>Digite o código do certificado</p>
+    <h1>Validação de Certificado</h1>
+    <p>Digite o código do certificado para validar</p>
 
     <input type="text" id="codigo" placeholder="Ex: INF-2026-0001">
-    <br>
-    <button onclick="validar()">Validar</button>
+    <button onclick="validar()">Validar certificado</button>
 
     <div class="resultado" id="resultado"></div>
 
-    <p style="margin-top:20px;">
-      Instagram: @infornet.fibra <br>
-      Site: infornet.in
-    </p>
+    <div class="footer">
+      <a href="https://instagram.com/infornet.fibra" target="_blank">@infornet.fibra</a> •
+      <a href="https://infornet.in" target="_blank">infornet.in</a>
+    </div>
   </div>
 
   <script>
@@ -64,7 +131,6 @@
       "INF-2026-0002": "Karine Rafael de Jesus - 24/01/2026",
       "INF-2026-0003": "Railane Santos da Silva - 24/01/2026",
       "INF-2026-0004": "Vitória Silva de Oliveira - 24/01/2026"
-      // continua até o 40
     };
 
     function validar() {
@@ -73,17 +139,18 @@
 
       if (certificados[codigo]) {
         resultado.innerHTML = `
-          Certificado válido ✅<br>
-          ${certificados[codigo]}<br><br>
-          <a href="certificados/${codigo}.pdf" target="_blank">
+          <strong>Certificado válido ✅</strong><br>
+          ${certificados[codigo]}<br>
+          <a href="./certificados/${codigo}.pdf" target="_blank">
             📄 Baixar certificado
           </a>
         `;
       } else {
-        resultado.innerHTML = "❌ Certificado não encontrado.";
+        resultado.innerHTML = "<span style='color:#dc3545'>❌ Certificado não encontrado.</span>";
       }
     }
   </script>
 
 </body>
 </html>
+
